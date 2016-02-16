@@ -1,0 +1,22 @@
+{
+  "name": "nightwatch-demos",
+  "description": "",
+  "version": "0.0.1",
+  "author": {
+    "name": "Andrei Rusu",
+    "email": "andrei@nightwatchjs.org"
+  },
+  "main": "./lib/index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nightwatchjs/nightwatch.git"
+  },
+  "scripts": {
+    "test": "node ./tests/run_tests.js"
+  },
+  "dependencies": {
+    "nightwatch": "^0.8.16",
+    "selenium-server-standalone-jar": "^2.51.0"
+  }
+}
