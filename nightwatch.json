@@ -2,7 +2,7 @@
   "src_folders" : ["./test"],
   "output_folder" : "./reports",
   "custom_commands_path" : "./lib/custom-commands",
-  "custom_assertions_path" : "",
+  "custom_assertions_path" : "./lib/custom-assertions",
   "page_objects_path" : "./lib/pages",
   "globals_path" : "./lib/globals.js",
   "live_output" : false,
@@ -15,7 +15,7 @@
     "host" : "127.0.0.1",
     "port" : 4444,
     "cli_args" : {
-      "webdriver.chrome.driver" : "",
+      "webdriver.chrome.driver" : "./node_modules/.bin/chromedriver",
       "webdriver.firefox.profile" : ""
     }
   },
@@ -28,12 +28,29 @@
       "silent" : true,
       "disable_colors": false,
       "screenshots" : {
-        "enabled" : false,
-        "path" : ""
+        "enabled" : true,
+        "path" : "./screens",
+        "on_failure" : true
       },
       "desiredCapabilities" : {
         "browserName" : "firefox"
       }
+    },
+
+    "chrome" : {
+      "desiredCapabilities" : {
+        "browserName" : "chrome"
+      }
+    },
+
+    "firefox" : {
+      "desiredCapabilities" : {
+        "browserName" : "firefox"
+      }
+    },
+
+    "circleci" : {
+      "output_folder" : "${CIRCLE_TEST_REPORTS}"
     },
 
     "saucelabs" : {
