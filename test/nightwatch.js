@@ -3,7 +3,7 @@ module.exports = {
     client
       .url('http://nightwatchjs.org')
       .waitForElementVisible('body')
-      .assert.elementsCount('#index-container ul.features li', 0)
+      .assert.elementsCount('#index-container ul.features li', 7)
       .end();
   }
 };
