@@ -5,8 +5,6 @@
   "custom_assertions_path" : "./lib/custom-assertions",
   "page_objects_path" : "./lib/pages",
   "globals_path" : "./lib/globals.js",
-  "live_output" : false,
-  "test_workers" : false,
 
   "selenium" : {
     "start_process" : true,
@@ -25,8 +23,6 @@
       "launch_url" : "http://localhost",
       "selenium_host" : "127.0.0.1",
       "selenium_port" : 4444,
-      "silent" : true,
-      "disable_colors": false,
       "screenshots" : {
         "enabled" : true,
         "path" : "./screens",
@@ -35,6 +31,10 @@
       "desiredCapabilities" : {
         "browserName" : "firefox"
       }
+    },
+
+    "circleci" : {
+      "output_folder" : "${CIRCLE_TEST_REPORTS}"
     },
 
     "chrome" : {
@@ -46,30 +46,6 @@
     "firefox" : {
       "desiredCapabilities" : {
         "browserName" : "firefox"
-      }
-    },
-
-    "circleci" : {
-      "output_folder" : "${CIRCLE_TEST_REPORTS}"
-    },
-
-    "saucelabs" : {
-      "selenium_host" : "ondemand.saucelabs.com",
-      "selenium_port" : 80,
-      "username" : "${SAUCE_USERNAME}",
-      "access_key" : "${SAUCE_ACCESS_KEY}",
-      "use_ssl" : false,
-      "silent" : true,
-      "output" : true,
-      "screenshots" : {
-        "enabled" : false,
-        "path" : ""
-      },
-      "globals" : {
-        "myGlobal" : "some_sauce_global"
-      },
-      "selenium" : {
-        "start_process" : false
       }
     }
   }
