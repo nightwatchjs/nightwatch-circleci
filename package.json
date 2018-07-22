@@ -1,5 +1,5 @@
 {
-  "name": "nightwatch-demos",
+  "name": "nightwatch-demo-tests",
   "description": "",
   "version": "0.0.1",
   "author": {
@@ -10,17 +10,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:nightwatchjs/nightwatch.git"
+    "url": "git@github.com:beatfactor/nightwatch-circleci.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/nightwatch --env circleci",
-    "test-chrome": "./node_modules/.bin/nightwatch --env chrome",
-    "test-parallel": "./node_modules/.bin/nightwatch --env chrome,firefox"
+    "test": "nightwatch",
+    "test-ci": "nightwatch --env circleci",
+    "test-chrome": "nightwatch --env chrome",
+    "test-parallel": "nightwatch --env chrome,firefox"
   },
   "dependencies": {
     "chai": "^3.5.0",
-    "chromedriver": "2.21.2",
-    "nightwatch": "git://github.com/nightwatchjs/nightwatch.git",
-    "selenium-server-standalone-jar": "2.51.0"
+    "chromedriver": "2.38.3",
+    "nightwatch": "1.0.7",
+    "selenium-server-standalone-jar": "3.11.0"
   }
 }

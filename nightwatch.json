@@ -1,35 +1,31 @@
 {
   "src_folders" : ["./test"],
   "output_folder" : "./reports",
-  "custom_commands_path" : "",
+  "custom_commands_path" : "./lib/custom-commands",
   "custom_assertions_path" : "./lib/custom-assertions",
   "page_objects_path" : "./lib/pages",
   "globals_path" : "./lib/globals.js",
 
-  "selenium" : {
+  "webdriver": {
     "start_process" : true,
-    "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-2.51.0.jar",
-    "log_path" : "",
-    "host" : "127.0.0.1",
-    "port" : 4444,
-    "cli_args" : {
-      "webdriver.chrome.driver" : "./node_modules/.bin/chromedriver",
-      "webdriver.firefox.profile" : ""
-    }
+    "server_path": "./bin/geckodriver-0.21",
+    "cli_args": [
+      "--log", "debug"
+    ],
+    "port": 4444
   },
 
   "test_settings" : {
     "default" : {
       "launch_url" : "http://localhost",
-      "selenium_host" : "127.0.0.1",
-      "selenium_port" : 4444,
       "screenshots" : {
         "enabled" : true,
         "path" : "./screens",
         "on_failure" : true
       },
       "desiredCapabilities" : {
-        "browserName" : "firefox"
+        "browserName" : "firefox",
+        "acceptInsecureCerts": true
       }
     },
 
@@ -38,14 +34,56 @@
     },
 
     "chrome" : {
+      "webdriver": {
+        "server_path": "node_modules/.bin/chromedriver",
+        "cli_args": [
+          "--verbose"
+        ],
+        "port": 9515
+      },
       "desiredCapabilities" : {
-        "browserName" : "chrome"
+        "browserName" : "chrome",
+        "chromeOptions": {
+          "args" : ["--no-sandbox"]
+        },
+        "loggingPrefs": {"driver": "INFO", "server": "OFF", "browser": "INFO"}
+      }
+    },
+
+    "safari" : {
+      "webdriver": {
+        "port": 4445,
+        "server_path": "/usr/bin/safaridriver"
+      },
+      "desiredCapabilities" : {
+        "browserName" : "safari"
       }
     },
 
     "firefox" : {
       "desiredCapabilities" : {
-        "browserName" : "firefox"
+        "browserName" : "firefox",
+        "acceptInsecureCerts": true,
+        "moz:firefoxOptions": {
+          "log": {"level": "trace"}
+        }
+      }
+    },
+
+    "selenium" : {
+      "selenium": {
+        "start_process": true,
+        "server_path" : "./node_modules/selenium-server-standalone-jar/jar/selenium-server-standalone-3.11.0.jar",
+        "port" : 4444,
+        "cli_args" : {
+          "webdriver.chrome.driver" : "./node_modules/.bin/chromedriver",
+          "webdriver.gecko.driver": "./bin/geckodriver-0.21",
+          "webdriver.firefox.profile" : ""
+        }
+      },
+      "desiredCapabilities" : {
+        "browserName" : "firefox",
+        "acceptInsecureCerts": true
       }
     }
   }

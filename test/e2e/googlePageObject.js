@@ -1,20 +1,22 @@
-/* jshint expr: true */
 module.exports = {
   'Demo Google search test using page objects' : function (client) {
-    var homePage = client.page.home();
+    const google = client.page['google.com'];
+    const homePage = google.home();
+
     homePage.navigate();
     homePage.expect.element('@searchBar').to.be.enabled;
 
     homePage
       .setValue('@searchBar', 'Nightwatch.js')
+      .sendKeys('@searchBar', client.Keys.ESCAPE)
       .submit();
 
-    var resultsPage = client.page.searchResults();
+    const resultsPage = google.searchResults();
     resultsPage.expect.element('@results').to.be.present.after(2000);
     resultsPage.expect.element('@results').to.contain.text('Nightwatch.js');
     resultsPage.expect.section('@menu').to.be.visible;
 
-    var menuSection = resultsPage.section.menu;
+    const menuSection = resultsPage.section.menu;
     menuSection.expect.element('@web').to.be.visible;
     menuSection.expect.element('@video').to.be.visible;
     menuSection.expect.element('@images').to.be.visible;
