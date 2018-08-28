@@ -1,5 +1,5 @@
 # nightwatch-demos
 
-https://circleci.com/gh/beatfactor/nightwatch-circleci
+https://circleci.com/gh/nightwatchjs/nightwatch-circleci
 
-![Status](https://circleci.com/gh/beatfactor/nightwatch-circleci.svg?style=shield)
+![Status](https://circleci.com/gh/nightwatchjs/nightwatch-circleci.svg?style=shield)
